@@ -20,7 +20,7 @@ class Solution(object):
                 
                 stack.append(char)
         
-        # Stack should be empty if the string is valid
+        
         return not stack
 
     def romanToInt(self, s):
