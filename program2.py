@@ -36,7 +36,7 @@ def isValid(s: str) -> bool:
     # Stack to hold opening brackets
     stack = []
 
-    # Loop through each character in the string
+    
     for char in s:
         if char in bracket_map:
             
