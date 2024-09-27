@@ -4,11 +4,35 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
+        # Dictionary for Roman numeral values
+        roman_dict = {
+            'I': 1,
+            'V': 5,
+            'X': 10,
+            'L': 50,
+            'C': 100,
+            'D': 500,
+            'M': 1000
+        }
 
-        def isValid(s: str) -> bool:
+        total = 0
+
+        # Loop through the Roman numeral string
+        for i in range(len(s)):
+            # If the current Roman numeral is smaller than the next one, subtract it
+            if i + 1 < len(s) and roman_dict[s[i]] < roman_dict[s[i + 1]]:
+                total -= roman_dict[s[i]]
+            else:
+                # Otherwise, add its value to the total
+                total += roman_dict[s[i]]
+
+        return total
+
+# The isValid function is now separate from the Solution class
+def isValid(s: str) -> bool:
     # Dictionary to match closing and opening brackets
     bracket_map = {')': '(', '}': '{', ']': '['}
-    
+
     # Stack to hold opening brackets
     stack = []
 
@@ -17,22 +41,13 @@ class Solution(object):
         if char in bracket_map:
             # Pop the top element from stack if it's non-empty, else assign a dummy value
             top_element = stack.pop() if stack else '#'
-            
+
             # If the mapping for this closing bracket doesn't match the stack's top element
             if bracket_map[char] != top_element:
                 return False
         else:
             # Push the opening bracket onto the stack
             stack.append(char)
-    
+
     # If the stack is empty, all brackets were matched; otherwise, it's invalid
     return not stack
-
-# Test cases
-print(isValid("()"))       # Output: True
-print(isValid("()[]{}"))   # Output: True
-print(isValid("(]"))       # Output: False
-print(isValid("([)]"))     # Output: False
-print(isValid("{[]}"))     # Output: True
-
-        pass
