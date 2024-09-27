@@ -6,7 +6,7 @@ class Solution(object):
         """
         
         stack = []
-        # Dictionary for matching pairs of brackets
+        
         bracket_map = {')': '(', '}': '{', ']': '['}
         
         for char in s:
