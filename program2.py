@@ -39,7 +39,7 @@ def isValid(s: str) -> bool:
     # Loop through each character in the string
     for char in s:
         if char in bracket_map:
-            # Pop the top element from stack if it's non-empty, else assign a dummy value
+            
             top_element = stack.pop() if stack else '#'
 
             # If the mapping for this closing bracket doesn't match the stack's top element
