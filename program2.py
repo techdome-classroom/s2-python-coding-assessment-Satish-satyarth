@@ -49,5 +49,5 @@ def isValid(s: str) -> bool:
             # Push the opening bracket onto the stack
             stack.append(char)
 
-    # If the stack is empty, all brackets were matched; otherwise, it's invalid
+    
     return not stack
