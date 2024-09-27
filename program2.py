@@ -23,7 +23,7 @@ class Solution(object):
             if i + 1 < len(s) and roman_dict[s[i]] < roman_dict[s[i + 1]]:
                 total -= roman_dict[s[i]]
             else:
-                # Otherwise, add its value to the total
+                
                 total += roman_dict[s[i]]
 
         return total
