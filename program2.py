@@ -33,7 +33,7 @@ def isValid(s: str) -> bool:
     # Dictionary to match closing and opening brackets
     bracket_map = {')': '(', '}': '{', ']': '['}
 
-    # Stack to hold opening brackets
+    
     stack = []
 
     
