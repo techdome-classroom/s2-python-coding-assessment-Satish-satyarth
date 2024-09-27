@@ -13,7 +13,7 @@ class Solution(object):
             if char in bracket_map:
                 
                 top_element = stack.pop() if stack else '#'
-                # Check if the top element matches the current closing bracket
+                
                 if bracket_map[char] != top_element:
                     return False
             else:
