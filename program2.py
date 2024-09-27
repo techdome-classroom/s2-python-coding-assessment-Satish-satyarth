@@ -28,7 +28,7 @@ class Solution(object):
 
         return total
 
-# The isValid function is now separate from the Solution class
+
 def isValid(s: str) -> bool:
     
     bracket_map = {')': '(', '}': '{', ']': '['}
