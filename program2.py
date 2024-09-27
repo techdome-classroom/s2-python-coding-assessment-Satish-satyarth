@@ -19,7 +19,7 @@ class Solution(object):
 
         # Loop through the Roman numeral string
         for i in range(len(s)):
-            # If the current Roman numeral is smaller than the next one, subtract it
+            
             if i + 1 < len(s) and roman_dict[s[i]] < roman_dict[s[i + 1]]:
                 total -= roman_dict[s[i]]
             else:
