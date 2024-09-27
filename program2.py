@@ -30,7 +30,7 @@ class Solution(object):
 
 # The isValid function is now separate from the Solution class
 def isValid(s: str) -> bool:
-    # Dictionary to match closing and opening brackets
+    
     bracket_map = {')': '(', '}': '{', ']': '['}
 
     
