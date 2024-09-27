@@ -36,6 +36,3 @@ print(isValid("([)]"))     # Output: False
 print(isValid("{[]}"))     # Output: True
 
         pass
-
-
-
