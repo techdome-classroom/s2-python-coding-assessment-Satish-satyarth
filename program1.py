@@ -4,32 +4,50 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        function romanToInt(s) {
-    // Dictionary for Roman numeral values
-    const romanDict = {
-        'I': 1,
-        'V': 5,
-        'X': 10,
-        'L': 50,
-        'C': 100,
-        'D': 500,
-        'M': 1000
-    };
+        # Stack to store opening brackets
+        stack = []
+        # Dictionary for matching pairs of brackets
+        bracket_map = {')': '(', '}': '{', ']': '['}
+        
+        for char in s:
+            if char in bracket_map:
+                # Pop the topmost element from the stack if it exists, otherwise use a dummy value
+                top_element = stack.pop() if stack else '#'
+                # Check if the top element matches the current closing bracket
+                if bracket_map[char] != top_element:
+                    return False
+            else:
+                # If it's an opening bracket, push it onto the stack
+                stack.append(char)
+        
+        # Stack should be empty if the string is valid
+        return not stack
 
-    let total = 0;
-
-    // Loop through the Roman numeral string
-    for (let i = 0; i < s.length; i++) {
-        // If the current Roman numeral is smaller than the next one, subtract it
-        if (i + 1 < s.length && romanDict[s[i]] < romanDict[s[i + 1]]) {
-            total -= romanDict[s[i]];
-        } else {
-            // Otherwise, add its value to the total
-            total += romanDict[s[i]];
+    def romanToInt(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        # Dictionary for Roman numeral values
+        roman_dict = {
+            'I': 1,
+            'V': 5,
+            'X': 10,
+            'L': 50,
+            'C': 100,
+            'D': 500,
+            'M': 1000
         }
-    }
 
-    return total;
-}
+        total = 0
 
-        pass
+        # Loop through the Roman numeral string
+        for i in range(len(s)):
+            # If the current Roman numeral is smaller than the next one, subtract it
+            if i + 1 < len(s) and roman_dict[s[i]] < roman_dict[s[i + 1]]:
+                total -= roman_dict[s[i]]
+            else:
+                # Otherwise, add its value to the total
+                total += roman_dict[s[i]]
+
+        return total
