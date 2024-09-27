@@ -17,7 +17,7 @@ class Solution(object):
 
         total = 0
 
-        # Loop through the Roman numeral string
+        
         for i in range(len(s)):
             
             if i + 1 < len(s) and roman_dict[s[i]] < roman_dict[s[i + 1]]:
