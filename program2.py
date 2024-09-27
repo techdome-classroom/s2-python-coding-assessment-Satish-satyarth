@@ -42,7 +42,7 @@ def isValid(s: str) -> bool:
             
             top_element = stack.pop() if stack else '#'
 
-            # If the mapping for this closing bracket doesn't match the stack's top element
+            
             if bracket_map[char] != top_element:
                 return False
         else:
